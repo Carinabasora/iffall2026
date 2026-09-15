@@ -1,0 +1,104 @@
+    body {
+    font-family: "Open Sans", sans-serif;
+    font-size: 18px;
+    line-height: 1.5;
+    margin: 8%;
+    color: #333333;
+}
+
+header {
+    border-bottom: 2px solid #333333;
+    margin-bottom: 50px;
+    padding-bottom: 20px;
+}
+
+h1 {
+    font-size: 48px;
+    margin: 0;
+}
+
+.summary {
+    margin-top: 5px;
+    color: #666666;
+}
+
+section {
+    margin-bottom: 50px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #cccccc;
+    padding-bottom: 8px;
+}
+
+p {
+    margin: 12px 0;
+}
+
+span {
+    display: inline-block;
+    width: 140px;
+    font-weight: bold;
+    color: #666666;
+}
+
+
+/* FONT WEIGHT */
+
+.weight-bold {
+    font-weight: 700;
+}
+
+
+/* FONT STYLE */
+
+.style-italic {
+    font-style: italic;
+}
+
+.style-oblique {
+    font-style: oblique;
+}
+
+
+/* LETTER SPACING */
+
+.spacing-wide {
+    letter-spacing: 0.1em;
+}
+
+.spacing-tight {
+    letter-spacing: -0.05em;
+}
+
+
+/* TEXT TRANSFORM */
+
+.transform-uppercase {
+    text-transform: uppercase;
+}
+
+.transform-lowercase {
+    text-transform: lowercase;
+}
+
+.transform-capitalize {
+    text-transform: capitalize;
+}
+
+
+/* TEXT DECORATION */
+
+.decoration-underline {
+    text-decoration: underline;
+}
+
+.decoration-overline {
+    text-decoration: overline;
+}
+
+.decoration-line {
+    text-decoration: line-through;
+}
