@@ -1,0 +1,24 @@
+h1{
+   font-family: "aktiv-grotesk", sans-serif;
+font-weight: 1000;
+font-style: normal; margin-top: 4cap;margin-bottom: cap;
+    }
+body{margin-left: 6cap;margin-right: 20cap;}
+p {
+    font-family: "aktiv-grotesk", sans-serif;
+font-weight: 400;
+font-style: normal;
+    }
+h2{
+    font-family: "aktiv-grotesk", sans-serif;
+font-weight: 700;
+font-style: normal; margin-top: 2cap;
+}
+figcaption{font-family: "aktiv-grotesk", sans-serif;
+font-weight: 300;
+font-style: normal; }
+
+hr{margin-top: 3cap;}
+img  {
+    max-width:50%;
+}
