@@ -1,0 +1,12 @@
+body{font-family:Arial,sans-serif;background:#eee;margin:0;color:#222}
+.wrap{width:1000px;margin:0 auto;background:#fff;border:2px solid #333;min-height:100vh}
+.top{display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid #333;padding:10px 16px}
+.logo{border:2px solid #333;padding:6px 12px;font-weight:bold}
+.top a{border:1px solid #333;padding:6px 10px;margin-left:6px;color:#222;text-decoration:none;font-size:13px}
+.top a.on{background:#ccc;font-weight:bold}
+.body{padding:20px}
+.img{background:#ccc;border:2px dashed #666;display:flex;align-items:center;justify-content:center;color:#555;height:200px}
+.row{display:flex;gap:20px;margin:16px 0}.row>*{flex:1}
+.box{border:2px solid #333;padding:12px}
+.nav2{display:flex;justify-content:space-between;margin-top:20px}.nav2 a{border:2px solid #333;padding:8px 14px;color:#222;text-decoration:none}
+.foot{border-top:2px solid #333;padding:10px;text-align:center;font-size:12px}
