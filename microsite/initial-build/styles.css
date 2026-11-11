@@ -1,0 +1,272 @@
+/* ===== Travel Frog: Version B (blue sky / landscape) ===== */
+
+/* ---------- Colors ---------- */
+:root {
+  --sky: #6a9fe0;     /* open sky */
+  --cream: #f1eee0;   /* postcard paper */
+  --leaf: hsl(116, 23%, 52%);    /* mountain green */
+  --deep: #3f5a3a;    /* dark green text */
+  --lime: #83c87f;    /* frog green (active nav tab) */
+  --frog: #88b771;    /* frog body green, sampled from the frog art */
+  --sand: #e3d7c1;    /* dirt path / neutrals */
+  --orange: #f08a3c;  /* travel flag */
+  --sun: #f0d34a;     /* stamp yellow */
+}
+
+/* ---------- Base ---------- */
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--sky);
+  font-family: "Work Sans", Arial, sans-serif;
+  color: #33402e;
+  line-height: 1.6;
+}
+.wrap { max-width: 1000px; margin: 0 auto; overflow: hidden; }
+h1, h2, h3 {
+  font-family: "Young Serif", Georgia, serif;
+  font-weight: 400;
+  line-height: 1.15;
+  margin: 0 0 10px;
+}
+h2 { font-size: 28px; color: var(--leaf); }
+h3 { font-size: 19px; }
+p { margin: 0 0 10px; }
+
+/* Pink top strip is used in Version A only */
+.strip { display: none; }
+
+/* ---------- Navigation ---------- */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 28px;
+}
+nav div { display: flex; gap: 4px; }
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 6px 11px;
+  border-radius: 6px;
+}
+nav a:hover { background: rgba(255, 255, 255, .2); }
+nav a.on { background: var(--cream); color: var(--deep); }
+nav b {
+  font-family: "Young Serif", serif;
+  font-weight: 400;
+  font-size: 24px;
+  color: #fff;
+}
+nav a.brand { display: flex; align-items: center; gap: 10px; padding: 0; background: none; }
+nav a.brand img { height: 52px; width: 52px; }
+
+/* ---------- Hero ---------- */
+.hero { padding: 50px 24px 56px; text-align: center; }
+.hero div { display: inline-block; animation: pop .8s both; }
+.hero h1 { margin: 0; font-size: 48px; color: #fff; }
+.hero p { margin: 6px 0 0; font-size: 17px; color: #fff; }
+
+/* ---------- Scrolling yellow banner ---------- */
+.band {
+  background: var(--sun);
+  transform: rotate(-1.5deg);
+  margin: 0 -20px 34px;
+  padding: 10px 0;
+  font-weight: 700;
+  letter-spacing: 2px;
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, .12);
+}
+.track { display: inline-block; animation: scroll 28s linear infinite; }
+
+/* ---------- Content sections (cream cards) ---------- */
+.sec {
+  display: flex;
+  gap: 36px;
+  align-items: center;
+  padding: 48px;
+  margin: 0 28px 26px;
+  background: var(--cream);
+  border-radius: 40px 60px 36px 52px;
+  animation: rise .8s both;
+}
+.sec > * { flex: 1; }
+.sec.col { display: block; }
+
+/* Image / sticker placeholders */
+.ph {
+  background: var(--sand);
+  border: 2px dashed #b0a58b;
+  border-radius: 10px;
+  color: #7a6f56;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 10px;
+  font-size: 13px;
+  min-height: 200px;
+}
+
+/* Photos / screenshots that replace the placeholders */
+.pic {
+  width: 100%;
+  height: 260px;
+  min-width: 0;
+  object-fit: cover;
+  border: 2px solid var(--deep);
+  border-radius: 10px;
+}
+
+/* "At a glance" card */
+.facts {
+  background: #fffdf5;
+  border-radius: 10px;
+  padding: 20px 24px;
+  transform: rotate(1deg);
+  box-shadow: 5px 5px 0 rgba(0, 0, 0, .15);
+}
+.facts h3 { color: var(--deep); }
+.facts dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 4px 16px; font-size: 14px; }
+.facts dt { font-weight: 700; }
+.facts dd { margin: 0; }
+
+/* ---------- Flipping cards ---------- */
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 16px; margin-top: 14px; }
+.flip { height: 200px; perspective: 900px; cursor: pointer; outline: none; }
+.flip > div {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform .7s;
+  transform-style: preserve-3d;
+}
+.flip:hover > div, .flip:focus > div { transform: rotateY(180deg); }
+.flip .f, .flip .b {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border: 2px solid var(--deep);
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #33402e;
+}
+.flip .f { background: var(--frog); align-items: center; text-align: center; }
+.flip .f small { font-size: 11px; opacity: .65; margin-top: 6px; }
+.flip .b { background: #fffdf5; transform: rotateY(180deg); font-size: 13.5px; line-height: 1.45; }
+
+/* ---------- Back / Next buttons ---------- */
+.next { display: flex; justify-content: space-between; padding: 30px 48px; }
+.next a {
+  background: var(--orange);
+  color: #fff;
+  text-decoration: none;
+  padding: 9px 22px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 14px;
+}
+.next a:hover { background: var(--deep); }
+
+/* ---------- Sources page: palette swatches + process images ---------- */
+.sw { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; }
+.sw div { background: var(--cream); border-radius: 8px; overflow: hidden; font-size: 13px; }
+.sw i { display: block; height: 46px; }
+.sw p { padding: 8px 12px 2px; margin: 0; }
+.iter { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; }
+.iter figure { margin: 0; font-size: 12px; }
+.iter img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  object-position: top;
+  border: 2px solid var(--deep);
+  border-radius: 6px;
+  background: #fff;
+}
+
+/* ---------- Landscape footer ---------- */
+.land { background: var(--sky); color: #fff; }
+.cols { display: flex; justify-content: space-between; padding: 40px 60px 10px; font-size: 13px; }
+.cols b { display: block; margin-bottom: 6px; font-family: "Young Serif", serif; font-weight: 400; font-size: 16px; }
+.cols a { display: block; color: #fff; text-decoration: none; opacity: .9; }
+.cols a:hover { text-decoration: underline; }
+.flogo img { width: 90px; height: 90px; border-radius: 50%; background: var(--cream); padding: 6px; display: block; }
+
+.cloud {                       /* cream clouds that drift slowly */
+  height: 130px;
+  margin-top: 20px;
+  background:
+    radial-gradient(circle at 50% 100%, var(--cream) 52px, transparent 53px) 0 0 / 120px 110px repeat-x,
+    linear-gradient(var(--cream), var(--cream)) bottom / 100% 40px no-repeat;
+  animation: drift 40s linear infinite;
+}
+.bush {                        /* row of orange bushes */
+  height: 26px;
+  margin-top: -6px;
+  background: radial-gradient(circle at 15px 15px, var(--orange) 14px, transparent 15px) repeat-x;
+  background-size: 30px 26px;
+}
+.field {                       /* striped green field with copyright */
+  background: repeating-linear-gradient(8deg, #a7b083 0 44px, #c6c18d 44px 50px);
+  color: #33402e;
+  font-size: 12px;
+  padding: 26px 60px 30px;
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  line-height: 1.5;
+}
+.field .ftr {                  /* frog sticker in the footer */
+  width: 96px;
+  height: 96px;
+  flex: none;
+  object-fit: contain;
+  background: var(--cream);
+  border-radius: 50%;
+  padding: 8px;
+}
+
+/* ---------- Frog sticker ("Meet the frog") ---------- */
+.sticker { display: flex; justify-content: center; align-items: center; }
+.sticker img { width: 100%; max-width: 260px; height: auto; animation: bob 4s ease-in-out infinite; }
+
+/* ---------- Animations ---------- */
+@keyframes scroll { to { transform: translateX(-50%); } }
+@keyframes rise   { from { opacity: 0; transform: translateY(26px); } }
+@keyframes pop    { from { opacity: 0; transform: scale(.94); } }
+@keyframes bob    { 50% { transform: translateY(-8px); } }
+@keyframes drift  { from { background-position: 0 0, 0 100%; } to { background-position: 120px 0, 0 100%; } }
+
+/* Respect visitors who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
+/* ---------- Postcard fronts ("How it works" cards) ---------- */
+/* Each card sets its own image with style="--img:url('file.jpg')" and an optional
+   focus point, e.g. --pos:center 12% (which part of the image stays in view) */
+.flip.postcard .f {
+  background: var(--sand) var(--img) var(--pos, center) / cover no-repeat;
+  padding: 10px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  overflow: hidden;
+}
+.flip.postcard .f h3 {            /* small cream label in the top corner */
+  background: rgba(241, 238, 224, .92);
+  margin: 0;
+  padding: 4px 14px;
+  border-radius: 6px;
+}
+.flip.postcard .f small { display: none; }
